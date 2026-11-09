@@ -1,0 +1,42 @@
+Greater Average
+
+ 1. Problem Overview
+
+ Problem Name: Greater Average
+ Objective: Determine whether the average of two numbers (A and B) is strictly greater than a third number (C).
+ Definition of Average: \text{Average} = \frac{A + B}{2}
+ Input Format:
+ The first line contains an integer T representing the number of test cases.
+ Each test case consists of three space-separated integers: A, B, and C.
+
+
+ Output Format:
+ Print `YES` if the average of A and B is strictly greater than C. Otherwise, print `NO`.
+
+ 2. Initial Implementation :
+n = int(input())
+for i in range(n):
+  li = list(map(int, input().split()))
+  res = (li[0] + li[1]) / 2
+  if res > li[2]:
+    print("YES")
+  else:
+    print("NO")
+
+ Analysis & Review
+ Correctness: The logical implementation `(A + B) / 2 > C` is completely correct and accurately fulfills the problem requirements.
+ Caveat: The original snippet included non-breaking space characters (`\xa0`). When copying directly into competitive coding environments (like CodeChef), these can trigger `SyntaxError: invalid non-printable character`.
+
+ 3. Optimized Implementation (Best Solution)
+for _ in range(int(input())):
+  a, b, c = map(int, input().split())
+
+   Cross-multiplication: (a + b) / 2 > c is equivalent to (a + b) > 2  c
+  if a + b > 2  c:
+    print("YES")
+  else:
+    print("NO")
+ Key Improvements
+
+1. Direct Variable Unpacking (`a, b, c`): Replaces index lookups (`li[0]`, `li[2]`), making the code self-documenting and much easier to read.
+2. Integer Arithmetic (`2  c` vs `/ 2`): Eliminates division entirely, avoiding potential floating-point precision inaccuracies and improving computational efficiency.
