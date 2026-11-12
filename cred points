@@ -1,0 +1,62 @@
+
+
+ Problem Name: CRED Coins
+ Objective: Calculate the maximum number of bags Chef can redeem at the CodeChef store using the CRED coins earned from paying bills.
+ Redemption Rate: $1 \text{ bag} = 100 \text{ CRED coins}$
+ Formula: $\text{Max Bags} = \left\lfloor \frac{X \times Y}{100} \right\rfloor$
+ Input Format:
+ The first line contains a single integer $T$, denoting the number of test cases.
+ Each test case consists of a single line with two space-separated integers: $X$ (coins earned per bill) and $Y$ (number of bills paid).
+
+
+ Output Format:
+ For each test case, output a single integer representing the maximum number of bags Chef can get.
+
+
+ Constraints:
+ $1 \le T \le 100$
+ $1 \le X, Y \le 1000$
+
+
+
+---
+
+## 2. Initial Implementation (User's Solution)
+
+### Code
+
+```python
+t = int(input())
+for _ in range(t):
+  bills, credX = map(int, input().split())
+  credPoints = bills  credX
+  bags = credPoints // 100
+  print(bags)
+
+```
+
+### Analysis & Review
+
+ Logic & Efficiency: Your solution is optimal! Using integer floor division (`// 100`) directly computes the exact number of complete bags without needing extra imports like `math.floor()`.
+ Variable Naming: Descriptive variable names (`bills`, `credX`, `credPoints`, `bags`) make the step-by-step logic very easy to follow. (Note: According to standard input order, the first integer is $X$ [coins per bill] and the second is $Y$ [number of bills], though multiplication is commutative so the output remains identical).
+ Formatting Note: Just like the previous snippet, the pasted code contained hidden non-breaking space characters (`\xa0`), which have been cleaned up above to prevent `SyntaxError` issues on online judges.
+
+---
+
+## 3. Concise Implementation (Best Solution)
+
+### Code
+
+```python
+# Best Solution
+for _ in range(int(input())):
+  x, y = map(int, input().split())
+  print((x  y) // 100)
+
+```
+
+### Key Improvements
+
+1. Direct Evaluation: Combines the calculation and output into a single clean expression `(x  y) // 100`, eliminating intermediate variables while staying completely readable.
+2. Input Alignment: Maps `x` and `y` directly to the problem statement's variable names ($X$ and $Y$) for effortless cross-referencing against constraints.
+3. Time & Space Complexity: Runs in $\mathcal{O}(1)$ time and $\mathcal{O}(1)$ auxiliary space per test case.
